@@ -1,6 +1,6 @@
 /** @type {import('@sveltejs/kit').Config} */
 
-var netlify = require('@sveltejs/adapter-netlify')
+import * as netlify from '@sveltejs/adapter-netlify'
 
 const config = {
 	kit: {
