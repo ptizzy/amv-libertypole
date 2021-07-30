@@ -9,7 +9,6 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-netlify": "^1.0.0-next.25",
     "@sveltejs/kit": "next",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -20,6 +19,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@sveltejs/adapter-netlify": "^1.0.0-next.25",
     "@fontsource/fira-mono": "^4.2.2",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1"
