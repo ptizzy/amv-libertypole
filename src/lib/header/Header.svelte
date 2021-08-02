@@ -7,9 +7,23 @@
 
 	<nav>
 		<ul>
-			<li><a class="btn-back" href="javascript:history.back()"></a></li>
-			<li class:active={$page.path === '/'}><a class="btn-home" sveltekit:prefetch href="/"></a></li>
-			<li class:active={$page.path === '/todos'}><a class="btn-forward" sveltekit:prefetch href="/todos"></a></li>
+      <li><a class="btn-back" href="javascript:history.back()">
+          <img id="back-tails" src='/btn-back-tails.svg'>
+          <img id="back-shadow" src='/btn-back-shadow.svg'>
+          <img id="back-main" src='/btn-back-main.svg'>
+        </a></li>
+      <li class:active={$page.path === '/'}>
+        <a class="btn-home" sveltekit:prefetch href="/">
+          <img id="home-tails" src='/btn-home-tails.svg'>
+          <img id="home-shadow" src='/btn-home-shadow.svg'>
+          <img id="home-main" src='/btn-home-main.svg'>
+        </a>
+      </li>
+      <li class:active={$page.path === '/todos'}><a class="btn-forward" sveltekit:prefetch href="/todos">
+          <img id="forward-tails" src='/btn-forward-tails.svg'>
+          <img id="forward-shadow" src='/btn-forward-shadow.svg'>
+          <img id="forward-main" src='/btn-forward-main.svg'>
+        </a></li>
 		</ul>
 	</nav>
 
@@ -83,19 +97,46 @@
   .btn-back {
     width: 141px;
     height: 108px;
-    background-image: url('/btn-back.svg');
+  }
+
+  .btn-back #back-shadow {
+    position: absolute;
+    mix-blend-mode: multiply;
+  }
+
+  .btn-back #back-main {
+    position: absolute;
+    isolation: isolate;
   }
 
   .btn-home {
     width: 204px;
     height: 133px;
-    background-image: url('/btn-home.svg');
+  }
+
+  .btn-home #home-shadow {
+    position: absolute;
+    mix-blend-mode: multiply;
+  }
+
+  .btn-home #home-main {
+    position: absolute;
+    isolation: isolate;
   }
 
   .btn-forward {
     width: 141px;
     height: 108px;
-    background-image: url('/btn-forward.svg');
+  }
+
+  .btn-forward #forward-shadow {
+    position: absolute;
+    mix-blend-mode: multiply;
+  }
+
+  .btn-forward #forward-main {
+    position: absolute;
+    isolation: isolate;
   }
 
 </style>
