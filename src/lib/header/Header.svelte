@@ -1,29 +1,62 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+  import { onMount } from 'svelte'
+	import Colonies from '$lib/colonies.json';
+  import BackImage from '$lib/header/btn-back_svg.svelte'
+  import NextImage from '$lib/header/btn-forward_svg.svelte'
+  import HomeImage from '$lib/header/btn-home_svg.svelte'
+
+  export let nav_prev = ''
+  export let nav_next = ''
+
+  onMount(() => {
+    addEventListener('sveltekit:navigation-end', (e) => {
+      let _path = e.target.location.pathname.split('/')
+      getNavs(_path[_path.length-1])
+    }) 
+  })
+
+  let getNavs = (current) => {
+    if (current) {
+      for (let i = 0; i < Colonies.length; i++) {
+        if (Colonies[i] == current) {
+          nav_prev = i == 0 ? Colonies[Colonies.length-1] : Colonies[i-1]
+          nav_next = i == Colonies.length-1 ? Colonies[0] : Colonies[i+1]
+        }
+      }
+    }
+    else {
+      nav_prev = ''
+      nav_next = ''
+    }
+  }
 </script>
 
 <header>
 
 	<nav>
 		<ul>
-      <li><a class="btn-back" href="javascript:history.back()">
-          <img id="back-tails" src='/btn-back-tails.svg'>
-          <img id="back-shadow" src='/btn-back-shadow.svg'>
-          <img id="back-main" src='/btn-back-main.svg'>
-        </a></li>
       <li class:active={$page.path === '/'}>
-        <a class="btn-home" sveltekit:prefetch href="/">
-          <img id="home-tails" src='/btn-home-tails.svg'>
-          <img id="home-shadow" src='/btn-home-shadow.svg'>
-          <img id="home-main" src='/btn-home-main.svg'>
-        </a>
+        {#if nav_prev}
+          <a class="btn-back" sveltekit:prefetch href="/colonies/{nav_prev}">
+              <BackImage />
+            </a>
+        {/if}
       </li>
-      <li class:active={$page.path === '/todos'}><a class="btn-forward" sveltekit:prefetch href="/todos">
-          <img id="forward-tails" src='/btn-forward-tails.svg'>
-          <img id="forward-shadow" src='/btn-forward-shadow.svg'>
-          <img id="forward-main" src='/btn-forward-main.svg'>
-        </a></li>
+      <li class:active={$page.path === '/'}>
+        {#if nav_prev && nav_next}
+          <a class="btn-home" sveltekit:prefetch href="/">
+              <HomeImage />
+          </a>
+        {/if}
+      </li>
+      <li class:active={$page.path === '/'}>
+        {#if nav_next}
+          <a class="btn-forward" sveltekit:prefetch href="/colonies/{nav_next}">
+              <NextImage />
+          </a>
+        {/if}
+      </li>
 		</ul>
 	</nav>
 
@@ -56,16 +89,6 @@
 
 	nav {
     margin: 120px 0;
-	}
-
-  nav ul li {
-  }
-
-	svg {
-	}
-
-	path {
-		fill: var(--background);
 	}
 
 	ul {

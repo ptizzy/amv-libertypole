@@ -1,18 +1,26 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
+  
 </script>
 
 <Header />
+
 <main>
 	<slot />
 </main>
 
+
 <!--
 <footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+  <div>
+    <a href='/colonies/de'>
+      DELAWARE
+    </a>
+  </div>
 </footer>
 -->
+
 
 <style>
   @font-face { font-family: 'Mary Jane - Eastern Europe'; src: url('/fonts/MJEASTE.ttf'); } 
@@ -26,8 +34,6 @@
     min-height: 1920px;
 		margin: 0 auto;
 		box-sizing: border-box;
-    background-image: url("/bg-home.webp");
-    background-image: no-repeat;
 	}
 
 	footer {

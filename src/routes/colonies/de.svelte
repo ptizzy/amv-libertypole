@@ -1,5 +1,6 @@
 <script context="module">
 	export const prerender = true;
+	import Colonies from '$lib/colonies.json';
 </script>
 
 <script>
@@ -14,9 +15,11 @@
 		<div></div>
 </section>
 
+<!--
 <footer>
   <a href="/declaration/de"><img src="/btn-delegates_banner-de.webp"></a>
 </footer>
+-->
 
 <style>
 	section {
