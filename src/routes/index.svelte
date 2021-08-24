@@ -59,11 +59,6 @@
 		width: 100%;
 	}
 
-	.map {
-		position: relative;
-		width: 100%;
-	}
-
 	.welcome svg {
 		position: relative;
 		width: 100%;
