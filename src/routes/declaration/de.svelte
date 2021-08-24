@@ -1,7 +1,3 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
 <script>
   import { onMount } from 'svelte'
   import { nav_current, nav_prev, nav_next } from '$lib/stores.js'
