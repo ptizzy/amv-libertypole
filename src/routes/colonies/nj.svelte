@@ -4,6 +4,8 @@
 
 <script>
 	// import Counter from '$lib/Counter.svelte';
+	import { page } from '$app/stores';
+  console.log($page.path)
 </script>
 
 <svelte:head>

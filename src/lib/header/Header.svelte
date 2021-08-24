@@ -1,34 +1,27 @@
 <script>
 	import { page } from '$app/stores';
   import { onMount } from 'svelte'
+  import { nav_current, nav_section, nav_prev, nav_next } from '$lib/stores.js'
 	import Colonies from '$lib/colonies.json';
   import BackImage from '$lib/header/btn-back_svg.svelte'
   import NextImage from '$lib/header/btn-forward_svg.svelte'
   import HomeImage from '$lib/header/btn-home_svg.svelte'
 
-  export let nav_prev = ''
-  export let nav_next = ''
-
   onMount(() => {
-    addEventListener('sveltekit:navigation-end', (e) => {
+    addEventListener('sveltekit:navigation-start', (e) => {
       let _path = e.target.location.pathname.split('/')
       getNavs(_path[_path.length-1])
+      nav_section.set( $nav_current !== '' ? _path[_path.length-2] : '')
+      console.log($nav_section)
+
     }) 
   })
 
   let getNavs = (current) => {
-    if (current) {
-      for (let i = 0; i < Colonies.length; i++) {
-        if (Colonies[i] == current) {
-          nav_prev = i == 0 ? Colonies[Colonies.length-1] : Colonies[i-1]
-          nav_next = i == Colonies.length-1 ? Colonies[0] : Colonies[i+1]
-        }
-      }
-    }
-    else {
-      nav_prev = ''
-      nav_next = ''
-    }
+    console.log('current', current)
+    let _current = current == '' ? 'home' : current
+    console.log('_current', _current)
+    nav_current.set( _current )
   }
 </script>
 
@@ -36,23 +29,23 @@
 
 	<nav>
 		<ul>
-      <li class:active={$page.path === '/'}>
-        {#if nav_prev}
-          <a class="btn-back" sveltekit:prefetch href="/colonies/{nav_prev}">
+      <li>
+        {#if $nav_prev && $nav_section != 'declaration'}
+          <a class="btn-back" sveltekit:prefetch href="/colonies/{$nav_prev}">
               <BackImage />
             </a>
         {/if}
       </li>
-      <li class:active={$page.path === '/'}>
-        {#if nav_prev && nav_next}
+      <li>
+        {#if $nav_current !== 'home'}
           <a class="btn-home" sveltekit:prefetch href="/">
               <HomeImage />
           </a>
         {/if}
       </li>
-      <li class:active={$page.path === '/'}>
-        {#if nav_next}
-          <a class="btn-forward" sveltekit:prefetch href="/colonies/{nav_next}">
+      <li>
+        {#if $nav_next && $nav_section != 'declaration'}
+          <a class="btn-forward" sveltekit:prefetch href="/colonies/{$nav_next}">
               <NextImage />
           </a>
         {/if}

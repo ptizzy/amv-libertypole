@@ -14,9 +14,6 @@
 <!--
 <footer>
   <div>
-    <a href='/colonies/de'>
-      DELAWARE
-    </a>
   </div>
 </footer>
 -->

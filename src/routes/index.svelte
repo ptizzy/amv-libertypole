@@ -4,45 +4,34 @@
 
 <script>
   import { onMount } from 'svelte'
+  import { goto } from '$app/navigation';
   import MapImage from '$lib/colonies_svg.svelte'
 	import Colonies from '$lib/colonies.json';
 
   let _map
-  let _test
   onMount(() => {
     const _colonies = _map.querySelectorAll('.colony, .selector') 
     _colonies.forEach((elem) => {
-//      elem.addEventListener('click', navigate, elem.target)
+      elem.addEventListener('click', navigate, elem.target)
     })
-
   })
 
   var navigate = (elem) => {
     let e = elem.target
-    console.log(e)
-    console.log(e.classList)
     let _href = ""
     elem.preventDefault()
-    for (let i=0; i<Colonies.length; i++) {
-      if ( e.classList.contains(Colonies[i]) ) {
-        console.log('going to ' + Colonies[i])
-        _href = '/colonies/' + Colonies[i]
+    for (let i=0; i<Colonies.abbr.length; i++) {
+      if ( e.classList.contains(Colonies.abbr[i]) ) {
+        _href = '/colonies/' + Colonies.abbr[i]
         break
       }
     }
     if (_href != "") {
-      setTimeout(function() {window.location.href = _href}, 3000)
+      goto(_href)
     }
     return false
   }
-  var testnav = (elem) => {
-    elem.preventDefault()
-    let e = elem.target
-    console.log(e)
-    console.log(e.classList)
-    setTimeout(function() {window.location.href = "/colonies/de"}, 3000)
-    return false
-  }
+
 </script>
 
 <svelte:head>
