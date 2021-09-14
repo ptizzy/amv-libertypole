@@ -1,7 +1,6 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
-  
 </script>
 
 <Header />
@@ -20,9 +19,6 @@
 
 
 <style>
-  @font-face { font-family: 'Mary Jane - Eastern Europe'; src: url('/fonts/MJEASTE.ttf'); } 
-  @font-face { font-family: Essays1743; font-style: italic; src: url('/fonts/Essays1743-Italic.ttf'); }
-  @font-face { font-family: Essays1743; src: url('/fonts/Essays1743.ttf'); }
 	main {
 		flex: 1;
 		display: flex;

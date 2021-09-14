@@ -4,7 +4,8 @@
 
 <script>
   import { onMount } from 'svelte'
-  import { goto } from '$app/navigation';
+  import { goto, prefetchRoutes } from '$app/navigation';
+  import PageTransition from '$lib/PageTransition.svelte';
   import MapImage from '$lib/colonies_svg.svelte'
 	import Colonies from '$lib/colonies.json';
 
@@ -14,6 +15,8 @@
     _colonies.forEach((elem) => {
       elem.addEventListener('click', navigate, elem.target)
     })
+   //  prefetchRoutes()
+    prefetchRoutes
   })
 
   var navigate = (elem) => {
@@ -38,11 +41,13 @@
 	<title>Home</title>
 </svelte:head>
 
-<section>
-  <div bind:this={_map} class="map">
-      <MapImage />
-		</div>
-</section>
+<PageTransition>
+  <section>
+    <div bind:this={_map} class="map">
+        <MapImage />
+      </div>
+  </section>
+</PageTransition>
 
 <style>
 	section {
@@ -51,16 +56,8 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
+    min-height: 1920px;
     background-image: url("/bg-home.webp");
     background-image: no-repeat;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome svg {
-		position: relative;
-		width: 100%;
 	}
 </style>

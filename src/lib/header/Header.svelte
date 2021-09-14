@@ -1,26 +1,22 @@
 <script>
-	import { page } from '$app/stores';
   import { onMount } from 'svelte'
   import { nav_current, nav_section, nav_prev, nav_next } from '$lib/stores.js'
-	import Colonies from '$lib/colonies.json';
-  import BackImage from '$lib/header/btn-back_svg.svelte'
-  import NextImage from '$lib/header/btn-forward_svg.svelte'
-  import HomeImage from '$lib/header/btn-home_svg.svelte'
+  import { page } from '$app/stores'
+  import BackImage from '$lib/header/btn-back.svg.svelte'
+  import NextImage from '$lib/header/btn-forward.svg.svelte'
+  import HomeImage from '$lib/header/btn-home.svg.svelte'
+  import { fade } from 'svelte/transition'
 
   onMount(() => {
     addEventListener('sveltekit:navigation-start', (e) => {
       let _path = e.target.location.pathname.split('/')
       getNavs(_path[_path.length-1])
       nav_section.set( $nav_current !== '' ? _path[_path.length-2] : '')
-      console.log($nav_section)
-
     }) 
   })
 
   let getNavs = (current) => {
-    console.log('current', current)
     let _current = current == '' ? 'home' : current
-    console.log('_current', _current)
     nav_current.set( _current )
   }
 </script>
@@ -31,21 +27,21 @@
 		<ul>
       <li>
         {#if $nav_prev && $nav_section != 'declaration'}
-          <a class="btn-back" sveltekit:prefetch href="/colonies/{$nav_prev}">
+          <a class="btn-back" in:fade="{{delay: 500, duration: 100}}" out:fade="{{delay: 0, duration: 100}}" sveltekit:prefetch href="/colonies/{$nav_prev}">
               <BackImage />
             </a>
         {/if}
       </li>
       <li>
         {#if $nav_current !== 'home'}
-          <a class="btn-home" sveltekit:prefetch href="/">
+          <a class="btn-home" in:fade="{{delay: 500, duration: 100}}" out:fade="{{delay: 0, duration: 100}}" sveltekit:prefetch href="/">
               <HomeImage />
           </a>
         {/if}
       </li>
       <li>
         {#if $nav_next && $nav_section != 'declaration'}
-          <a class="btn-forward" sveltekit:prefetch href="/colonies/{$nav_next}">
+          <a class="btn-forward" in:fade="{{delay: 500, duration: 100}}" out:fade="{{delay: 0, duration: 100}}" sveltekit:prefetch href="/colonies/{$nav_next}">
               <NextImage />
           </a>
         {/if}
