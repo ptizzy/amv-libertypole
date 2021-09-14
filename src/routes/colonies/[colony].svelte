@@ -29,7 +29,7 @@
 		align-items: center;
 		flex: 1;
     background-blend-mode: multiply;
-    background-image: url('/page-colony-blue-bg.webp'), url('/bg-colony.webp');
+    background-image: url('/img/colonies/page-colony-blue-bg.webp'), url('/bg-colony.webp');
     background-image: no-repeat;
 	}
 
