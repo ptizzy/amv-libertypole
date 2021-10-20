@@ -13,13 +13,13 @@
 	<title></title>
 </svelte:head>
 
-<PageTransition>
+<!-- <PageTransition> -->
 <section>
   {#if $nav_current != 'home'}
 		<div style="background-image: url('/img/colonies/page-colony-{$nav_current}.webp');"></div>
   {/if}
 </section>
-</PageTransition>
+<!-- </PageTransition> -->
 
 <style>
 	section {

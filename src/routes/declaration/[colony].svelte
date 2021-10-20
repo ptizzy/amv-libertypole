@@ -19,7 +19,7 @@
 
 </script>
 
-<PageTransition>
+<!-- <PageTransition> -->
   <section class="container" style="background-image:url('/bg-delegates_popup.webp'), url('/bg-colony.webp');">
       <img class="doc-header" src="/img/declaration/declaration_header.webp">
       <div class="doc"></div>
@@ -51,7 +51,7 @@
       {/if}
       <Delegates />
   </section>
-</PageTransition>
+  <!-- </PageTransition> -->
 
 
 <style>
