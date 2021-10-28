@@ -22,7 +22,7 @@
 </script>
 
 <!-- <PageTransition> -->
-  <section class="container" style="background-image:url('/img/declaration/bg-declaration.webp');">
+  <section class="container" style="background-image:url('/img/declaration/bg-delegates_popup.webp'), url('/img/declaration/bg-declaration.webp');">
       <img class="doc-header" src="/img/declaration/declaration_header.webp">
       <div class="doc"></div>
       <img transition:fade class="colony-img" src="/img/declaration/colony-{colony}.webp">
