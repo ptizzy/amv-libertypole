@@ -19,7 +19,7 @@
 </svelte:head>
 
 <!-- <PageTransition> -->
-<section style="background-image:url('/img/colonies/page-colony-blue-bg.webp'), url('/bg-colony.webp'); background-blend-mode: multiply; background-image: no-repeat;">
+<section>
   {#if $nav_current != 'home'}
 		<div style="background-image: url('/img/colonies/page-colony-{$nav_current}.webp');"></div>
   {/if}
@@ -33,10 +33,10 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
+    background-image: url('/img/colonies/bg-colony.webp');
 	}
 
   .old-section {
-    background-image: url('/img/colonies/page-colony-blue-bg.webp'), url('/bg-colony.webp');
     background-blend-mode: multiply;
     background-image: no-repeat;
   }
