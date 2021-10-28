@@ -27,21 +27,21 @@
 		<ul>
       <li>
         {#if $nav_prev && $nav_section != 'declaration'}
-          <a class="btn-back" in:fade="{{delay: 500, duration: 100}}" out:fade="{{delay: 0, duration: 100}}" sveltekit:prefetch href="/colonies/{$nav_prev}">
+          <a class="btn-back" sveltekit:prefetch href="/colonies/{$nav_prev}">
               <BackImage />
             </a>
         {/if}
       </li>
       <li>
         {#if $nav_current !== 'home'}
-          <a class="btn-home" in:fade="{{delay: 500, duration: 100}}" out:fade="{{delay: 0, duration: 100}}" sveltekit:prefetch href="/">
+          <a class="btn-home" sveltekit:prefetch href="/">
               <HomeImage />
           </a>
         {/if}
       </li>
       <li>
         {#if $nav_next && $nav_section != 'declaration'}
-          <a class="btn-forward" in:fade="{{delay: 500, duration: 100}}" out:fade="{{delay: 0, duration: 100}}" sveltekit:prefetch href="/colonies/{$nav_next}">
+          <a class="btn-forward" sveltekit:prefetch href="/colonies/{$nav_next}">
               <NextImage />
           </a>
         {/if}
@@ -134,6 +134,7 @@
   .btn-home #home-main {
     position: absolute;
     isolation: isolate;
+    font-family: "CaslonAntique-Bold";
   }
 
   .btn-forward {

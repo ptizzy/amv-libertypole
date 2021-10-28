@@ -116,7 +116,7 @@
      fill="#e1251b"
      id="polygon28" />
   <text
-     clas=""
+     class="nav-text"
      x="20.181177"
      y="21.23534"
      fill="#ffffff"

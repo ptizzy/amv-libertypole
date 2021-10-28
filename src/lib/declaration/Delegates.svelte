@@ -33,7 +33,7 @@
   }
   let DelegateLines
 
-  const delegate_qty = {"ct": 4, "de": 3, "ga": 3, "ma": 4, "md": 4, "nc": 3, "nh": 3, "nj": 5, "ny": 4, "pa": [4,5], "ri": 2, "sc": 4, "va": [3,4]}
+  const delegate_qty = {"ct": 4, "de": 3, "ga": 3, "ma": 5, "md": 4, "nc": 3, "nh": 3, "nj": 5, "ny": 4, "pa": [4,5], "ri": 2, "sc": 4, "va": [3,4]}
 
   const delegate_portraits = (col, qty) => {
     let _arr = []
@@ -192,6 +192,7 @@
 
   .lines-ma {
     margin-left: 18px;
+    margin-bottom:  3px;
   }
 
   .lines-md {
@@ -257,7 +258,7 @@
   }
 
   li.li-ma-row {
-    padding: 0 25px;
+    padding: 0 0px;
   }
 
   li.li-md-row {
@@ -348,7 +349,7 @@
   }
 
   .delegates-row.ul-ma {
-    margin: -12px 0 0 46px;
+    margin: -12px 0 0 68px;
   }
 
   .delegates-row.ul-md {

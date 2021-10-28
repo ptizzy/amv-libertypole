@@ -45,6 +45,7 @@ p {
 a {
 	color: var(--accent-color);
 	text-decoration: none;
+	outline: none;
 }
 
 a:hover {

@@ -2,6 +2,7 @@
   import { nav_current } from '$lib/stores.js'
   import { fade } from 'svelte/transition'
   import { onMount } from 'svelte'
+  import { prefetchRoutes } from '$app/navigation';
 	import Colonies from '$lib/colonies.json';
   import PageTransition from '$lib/PageTransition.svelte';
   import Delegates from '$lib/declaration/Delegates.svelte'
@@ -15,6 +16,7 @@
   
   onMount(() => {
     if ($nav_current !== 'home') colony = $nav_current
+    prefetchRoutes()
   })
 
 </script>
@@ -26,17 +28,12 @@
       <img transition:fade class="colony-img" src="/img/declaration/colony-{colony}.webp">
       {#if $nav_current == 'pa'}
         <div transition:fade class="blurb blurb-pa">
-          Franklin also served on the committee to draft the Declaration of Independence.
+          Benjamin Franklin also served on the committee to draft the Declaration of Independence.
         </div>
       {/if}
       {#if $nav_current == 'ct'}
         <div transition:fade class="blurb blurb-ct">
           Roger Sherman also served on the committee to draft the Declaration of Independence.
-        </div>
-      {/if}
-      {#if $nav_current == 'ma'}
-        <div transition:fade class="blurb blurb-ma">
-          John Adams was on the committee to draft the Declaration and later served as the first Vice President and second President of the new United States of America.
         </div>
       {/if}
       {#if $nav_current == 'va'}
@@ -46,7 +43,7 @@
       {/if}
       {#if $nav_current == 'ny'}
         <div transition:fade class="blurb blurb-ny">
-          Livingston's cousin Robert served on the committee to draft the Declaration of Independence, but was recalled to New York before he could sign so Philip signed in his place.
+          Philip Livingston's cousin Robert served on the committee to draft the Declaration of Independence, but was recalled to New York before he could sign so Philip signed in his place.
         </div>
       {/if}
       <Delegates />
@@ -123,9 +120,16 @@
     margin: -128px 210px 0 0;
   }
 
-  .blurb-ma {
+  .blurb-ma1 {
     width: 256px;
     justify-self: center;
+    align-self: center;
+    margin: -44px 24px 0 0;
+  }
+
+  .blurb-ma2 {
+    width: 156px;
+    justify-self: end;
     align-self: center;
     margin: -44px 24px 0 0;
   }
@@ -138,10 +142,11 @@
   }
 
   .blurb-ny {
-    width: 272px;
+    width: 205px;
     justify-self: end;
-    align-self: center;
-    margin: -124px 145px 0 0;
+    align-self: start;
+    margin: -33px 188px 0 0;
+    line-height: 1.05em;
   }
 
 

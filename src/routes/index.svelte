@@ -15,8 +15,7 @@
     _colonies.forEach((elem) => {
       elem.addEventListener('click', navigate, elem.target)
     })
-   //  prefetchRoutes()
-    prefetchRoutes
+    prefetchRoutes()
   })
 
   var navigate = (elem) => {

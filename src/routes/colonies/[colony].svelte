@@ -5,8 +5,13 @@
 <script>
   import { page } from '$app/stores'
   import { nav_current } from '$lib/stores.js'
+  import { onMount } from 'svelte'
+  import { prefetchRoutes } from '$app/navigation';
   import PageTransition from '$lib/PageTransition.svelte';
   const colony = $page.params.colony
+  onMount(() => {
+    prefetchRoutes()
+  })
 </script>
 
 <svelte:head>

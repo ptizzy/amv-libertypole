@@ -5,6 +5,8 @@
 <script>
   import { nav_current, nav_next, nav_prev } from '$lib/stores.js'
 	import Colonies from '$lib/colonies.json';
+  import BackImage from '$lib/header/btn-back.svg.svelte'
+  import NextImage from '$lib/header/btn-forward.svg.svelte'
   let colony_name
   nav_current.subscribe( value => {
     let _colony_name = () => {
@@ -30,7 +32,7 @@
   <ul>
     <li>
       <a href="/declaration/{$nav_prev}">
-        <img src="/btn-nav-delegates-back.webp">
+        <BackImage />
       </a>
     </li>
     <li class="footer_text">
@@ -38,7 +40,7 @@
     </li>
     <li>
       <a href="/declaration/{$nav_next}">
-        <img src="/btn-nav-delegates-next.webp">
+        <NextImage />
       </a>
     </li>
   </ul>
@@ -52,7 +54,7 @@
 <style>
 	footer {
     position: absolute;
-    top: 1720px;
+    top: 1706px;
     height: 134px;
     width: 1080px;
 	}
@@ -72,6 +74,7 @@
 	li {
 		position: relative;
 		height: 100%;
+    margin: 0 -6px 0 -6px;
 	}
 
   .footer_text {
