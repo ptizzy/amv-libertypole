@@ -21,7 +21,7 @@
 
 </script>
 
-<!-- <PageTransition> -->
+<PageTransition>
   <section class="container" style="background-image:url('/img/declaration/bg-declaration_popup.webp'), url('/img/declaration/bg-declaration.webp');">
       <img class="doc-header" src="/img/declaration/declaration_header.webp">
       <div class="doc"></div>
@@ -36,6 +36,14 @@
           Roger Sherman also served on the committee to draft the Declaration of Independence.
         </div>
       {/if}
+      {#if $nav_current == 'ma'}
+        <div transition:fade class="blurb blurb-ma1">
+          John Hancock was made the lead delegate from Massachusetts in 1774, and was appointed in 1775 as President of the Second Continental Congress. He was the first to sign the Declaration of Independence. He is best known for his large signature on the Declaration of Independence, which he jested the British could read without spectacles.
+        </div>
+        <div transition:fade class="blurb blurb-ma2">
+          John Adams was on the committee to draft the Declaration of Independence and later served as the first Vice President and second President of the new United States of America.
+        </div>
+      {/if}
       {#if $nav_current == 'va'}
         <div transition:fade class="blurb blurb-va">
           Thomas Jefferson served on the committee to draft the Declaration of Independence and was its primary author.
@@ -48,7 +56,7 @@
       {/if}
       <Delegates />
   </section>
-  <!-- </PageTransition> -->
+</PageTransition>
 
 
 <style>
@@ -121,17 +129,19 @@
   }
 
   .blurb-ma1 {
-    width: 256px;
+    width: 242px;
     justify-self: center;
-    align-self: center;
-    margin: -44px 24px 0 0;
+    align-self: start;
+    margin: -61px 49px 0 0;
+    line-height: 0.95em;
   }
 
   .blurb-ma2 {
-    width: 156px;
+    width: 133px;
     justify-self: end;
-    align-self: center;
-    margin: -44px 24px 0 0;
+    align-self: start;
+    margin: -61px 178px 0 0;
+    line-height: 0.95em;
   }
 
   .blurb-va {

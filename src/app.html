@@ -7,7 +7,23 @@
 
 		%svelte.head%
 	</head>
-	<body>
+
+
+  <body>
 		<div id="svelte">%svelte.body%</div>
 	</body>
+  <script>
+    var activityTimeout
+    var activityTimeoutElapsed = () => {
+      window.location.href = "/"
+    }
+    var activityMonitor = () => {
+      console.log("activity detected")
+      clearTimeout(activityTimeout)
+      activityTimeout = window.setTimeout(() => {activityTimeoutElapsed()}, 3*60*1000) // 3 minutes
+    }
+    const _body = document.querySelector('body') 
+    _body.addEventListener('click', activityMonitor)
+  
+  </script>
 </html>

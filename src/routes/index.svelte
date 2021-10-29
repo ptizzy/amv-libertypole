@@ -40,13 +40,13 @@
 	<title>Home</title>
 </svelte:head>
 
-<!-- <PageTransition> -->
+<PageTransition>
   <section>
     <div bind:this={_map} class="map">
         <MapImage />
       </div>
   </section>
-<!-- </PageTransition> -->
+</PageTransition>
 
 <style>
 	section {
