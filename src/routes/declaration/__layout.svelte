@@ -4,6 +4,7 @@
 
 <script>
   import { nav_current, nav_next, nav_prev } from '$lib/stores.js'
+  import PageTransition from '$lib/PageTransition.svelte';
 	import Colonies from '$lib/colonies.json';
   import BackImage from '$lib/header/btn-back.svg.svelte'
   import NextImage from '$lib/header/btn-forward.svg.svelte'
@@ -27,29 +28,31 @@
 
 <slot></slot>
 
-{#if $nav_current != 'home'}
-<footer>
-  <ul>
-    <li>
-      <a href="/declaration/{$nav_prev}">
-        <BackImage />
-      </a>
-    </li>
-    <li class="footer_text">
-      <img src="/text-delegates-touch.webp">
-    </li>
-    <li>
-      <a href="/declaration/{$nav_next}">
-        <NextImage />
-      </a>
-    </li>
-  </ul>
+<PageTransition>
+  {#if $nav_current != 'home'}
+  <footer>
+    <ul>
+      <li>
+        <a href="/declaration/{$nav_prev}">
+          <BackImage />
+        </a>
+      </li>
+      <li class="footer_text">
+        <img src="/text-delegates-touch.webp">
+      </li>
+      <li>
+        <a href="/declaration/{$nav_next}">
+          <NextImage />
+        </a>
+      </li>
+    </ul>
 
-  <a class="btn_close" href="/colonies/{$nav_current}">
-    <img src="/btn-nav-delegates-close.webp">
-  </a>
-</footer>
-{/if}
+    <a class="btn_close" href="/colonies/{$nav_current}">
+      <img src="/btn-nav-delegates-close.webp">
+    </a>
+  </footer>
+  {/if}
+</PageTransition>
 
 <style>
 	footer {

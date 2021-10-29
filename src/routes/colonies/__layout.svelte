@@ -4,6 +4,7 @@
 
 <script>
   import { nav_current } from '$lib/stores.js'
+  import PageTransition from '$lib/PageTransition.svelte';
   
     import DelewareBanner from '$lib/colonies/btn-delegates_banner-de.svg.svelte'
     import PennsylvaniaBanner from '$lib/colonies/btn-delegates_banner-pa.svg.svelte'
@@ -23,39 +24,41 @@
 
 <slot></slot>
 
-{#if $nav_current != 'home'}
-<footer>
-  <a href="/declaration/{$nav_current}">
-  {#if $nav_current == 'de'}
-    <DelewareBanner />
-  {:else if $nav_current == 'pa'}
-    <PennsylvaniaBanner />
-  {:else if $nav_current == 'nj'}
-    <NewJerseyBanner />
-  {:else if $nav_current == 'ga'}
-    <GeorgiaBanner />
-  {:else if $nav_current == 'ct'}
-    <ConnecticutBanner />
-  {:else if $nav_current == 'ma'}
-    <MassachussettsBanner />
-  {:else if $nav_current == 'md'}
-    <MarylandBanner />
-  {:else if $nav_current == 'sc'}
-    <SouthCarolinaBanner />
-  {:else if $nav_current == 'nh'}
-    <NewHampshireBanner />
-  {:else if $nav_current == 'va'}
-    <VirginiaBanner />
-  {:else if $nav_current == 'ny'}
-    <NewYorkBanner />
-  {:else if $nav_current == 'nc'}
-    <NorthCarolinaBanner />
-  {:else if $nav_current == 'ri'}
-    <RhodeIslandBanner />
+<PageTransition>
+  {#if $nav_current != 'home'}
+  <footer>
+    <a href="/declaration/{$nav_current}">
+    {#if $nav_current == 'de'}
+      <DelewareBanner />
+    {:else if $nav_current == 'pa'}
+      <PennsylvaniaBanner />
+    {:else if $nav_current == 'nj'}
+      <NewJerseyBanner />
+    {:else if $nav_current == 'ga'}
+      <GeorgiaBanner />
+    {:else if $nav_current == 'ct'}
+      <ConnecticutBanner />
+    {:else if $nav_current == 'ma'}
+      <MassachussettsBanner />
+    {:else if $nav_current == 'md'}
+      <MarylandBanner />
+    {:else if $nav_current == 'sc'}
+      <SouthCarolinaBanner />
+    {:else if $nav_current == 'nh'}
+      <NewHampshireBanner />
+    {:else if $nav_current == 'va'}
+      <VirginiaBanner />
+    {:else if $nav_current == 'ny'}
+      <NewYorkBanner />
+    {:else if $nav_current == 'nc'}
+      <NorthCarolinaBanner />
+    {:else if $nav_current == 'ri'}
+      <RhodeIslandBanner />
+    {/if}
+    </a>
+  </footer>
   {/if}
-  </a>
-</footer>
-{/if}
+</PageTransition>
 
 
 <style>

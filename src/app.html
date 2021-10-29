@@ -18,7 +18,6 @@
       window.location.href = "/"
     }
     var activityMonitor = () => {
-      console.log("activity detected")
       clearTimeout(activityTimeout)
       activityTimeout = window.setTimeout(() => {activityTimeoutElapsed()}, 3*60*1000) // 3 minutes
     }
